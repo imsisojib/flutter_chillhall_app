@@ -8,10 +8,6 @@ Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();  //initializing Dependency Injection
   runApp(
-    MultiProvider(
-      providers: [
-      ],
-      child: const ChillHall(),
-    ),
+      const ChillHall()
   );
 }
