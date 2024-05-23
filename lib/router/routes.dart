@@ -6,6 +6,7 @@ class Routes {
 
   //auth secction
   static const String LOGIN = "/login";
+  static const String SIGNUP = "/signup";
 
 
   static String getMainRoute() => MAIN_SCREEN;

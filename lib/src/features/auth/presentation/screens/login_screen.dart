@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chillhall_app/resources/color_resources.dart';
 import 'package:flutter_chillhall_app/resources/images.dart';
+import 'package:flutter_chillhall_app/router/routes.dart';
 import 'package:flutter_chillhall_app/src/core/presentation/widgets/basic_textfield.dart';
 import 'package:flutter_chillhall_app/src/core/presentation/widgets/buttons/button_filled.dart';
 import 'package:flutter_chillhall_app/src/core/presentation/widgets/password_textfield.dart';
@@ -59,7 +60,9 @@ class LoginScreen extends StatelessWidget {
                           width: 4,
                         ),
                         InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.SIGNUP,);
+                            },
                             child: Text(
                               "Create an account",
                               style: TextDecorations.getNormalTextStyle(context, fontSize: 12.0, color: Colors.blue),
