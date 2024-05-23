@@ -109,7 +109,7 @@ class ButtonWithTittle extends StatelessWidget {
             },
             child: Text(
               buttonText ?? "",
-              style: buttonTextStyle,
+              style: buttonTextStyle??theme.textTheme.titleMedium,
             ),
           ),
         )

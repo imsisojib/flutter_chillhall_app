@@ -97,9 +97,13 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                       children: [
                         Text(
                           tittleText ?? "",
+                          style: theme.textTheme.bodySmall,
                         ),
                         Text(
                           additionalTittleText ?? "",
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: AppColors.white25,
+                          ),
                         ),
                       ],
                     ),

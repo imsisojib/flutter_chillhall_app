@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chillhall_app/resources/color_resources.dart';
-import 'package:provider/provider.dart';
 
 class ButtonFilled extends StatelessWidget {
   final String? buttonText;
@@ -29,12 +28,14 @@ class ButtonFilled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       width: width,
       height: height,
       decoration: BoxDecoration(color: buttonColor, borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
       child: MaterialButton(
-        padding: EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         onPressed: () {
           //function will check first
           if (function != null) {
@@ -44,7 +45,7 @@ class ButtonFilled extends StatelessWidget {
         },
         child: Text(
           buttonText ?? "",
-          style: buttonTextStyle,
+          style: buttonTextStyle??theme.textTheme.titleMedium,
         ),
       ),
     );

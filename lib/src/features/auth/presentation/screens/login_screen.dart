@@ -48,9 +48,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Text(
                       "Sign in",
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontSize: 20.sp,
-                      ),
+                      style: theme.textTheme.displayMedium,
                     ),
                     Row(
                       children: [
@@ -128,7 +126,12 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(
                           width: 4,
                         ),
-                        const Text("Continue with"),
+                        Text(
+                          "Continue with",
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: AppColors.white25,
+                          ),
+                        ),
                         const SizedBox(
                           width: 4,
                         ),

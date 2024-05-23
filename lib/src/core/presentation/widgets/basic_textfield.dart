@@ -88,17 +88,21 @@ class _BasicTextFieldState extends State<BasicTextField> {
                       children: [
                         Text(
                           tittleText ?? "",
+                          style: theme.textTheme.bodySmall,
                         ),
                         isMandatoryField
                             ? Text(
                                 "*",
-                                style: theme.textTheme.bodyMedium?.copyWith(
+                                style: theme.textTheme.bodySmall?.copyWith(
                                   color: AppColors.red400,
                                 ),
                               )
                             : const Text(""),
                         Text(
                           additionalTittleText ?? "",
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: AppColors.white25,
+                          ),
                         ),
                       ],
                     ),

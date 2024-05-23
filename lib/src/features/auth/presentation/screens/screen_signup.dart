@@ -19,157 +19,167 @@ class ScreenSignUp extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IconButton(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(Icons.arrow_back_ios)),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Center(
-                    child: Column(
+                      icon: const Icon(
+                        Icons.arrow_back_ios,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Center(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            AppIcons.chillHallLogoMotto,
+                            width: 200,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 48,
+                    ),
+                    Text(
+                      "Sign up",
+                      style: theme.textTheme.displayMedium,
+                    ),
+                    Row(
                       children: [
-                        Image.asset(
-                          AppIcons.chillHallLogoMotto,
-                          width: 200,
+                        Text(
+                          "Already have account?",
+                          style: theme.textTheme.labelMedium,
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              Routes.loginScreen,
+                              (route) => false,
+                            );
+                          },
+                          child: Text(
+                            "Sign in",
+                            style: theme.textTheme.labelMedium?.copyWith(
+                              color: Colors.blue,
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 48,
-                  ),
-                  Text(
-                    "Sign up",
-                    style: theme.textTheme.displayMedium,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Already have account?",
-                        style: theme.textTheme.labelMedium,
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            Routes.loginScreen,
-                            (route) => false,
-                          );
-                        },
-                        child: Text(
-                          "Sign in",
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  BasicTextField(
-                    tittleText: "Name",
-                    hintText: "John Doe",
-                    controller: _nameController,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  BasicTextField(
-                    tittleText: "Email or Phone Number",
-                    hintText: "johndoe@gmail.com",
-                    controller: _emailController,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  PasswordTextField(
-                    tittleText: "Password",
-                    hintText: "Password",
-                    controller: _passwordController,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  ButtonFilled(
-                    checkAuthentication: false,
-                    buttonText: "Sign Up",
-                    width: MediaQuery.of(context).size.width,
-                    height: 40,
-                    function: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        Routes.homeScreen,
-                        (route) => false,
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                          child: Container(
-                        color: AppColors.white10,
-                        height: 1,
-                      )),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      const Text("Continue with"),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Expanded(
-                        child: Container(
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    BasicTextField(
+                      tittleText: "Name",
+                      hintText: "John Doe",
+                      controller: _nameController,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    BasicTextField(
+                      tittleText: "Email or Phone Number",
+                      hintText: "johndoe@gmail.com",
+                      controller: _emailController,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    PasswordTextField(
+                      tittleText: "Password",
+                      hintText: "Password",
+                      controller: _passwordController,
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    ButtonFilled(
+                      checkAuthentication: false,
+                      buttonText: "Sign Up",
+                      width: MediaQuery.of(context).size.width,
+                      height: 40,
+                      function: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          Routes.homeScreen,
+                          (route) => false,
+                        );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                            child: Container(
                           color: AppColors.white10,
                           height: 1,
+                        )),
+                        const SizedBox(
+                          width: 4,
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: AuthProviderItem(
-                          image: AppIcons.google_logo,
+                        Text(
+                          "Continue with",
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: AppColors.white25,
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: AuthProviderItem(
-                          image: AppIcons.facebook_logo,
+                        const SizedBox(
+                          width: 4,
                         ),
-                      ),
-                      Expanded(
+                        Expanded(
+                          child: Container(
+                            color: AppColors.white10,
+                            height: 1,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    const Row(
+                      children: [
+                        Expanded(
                           child: AuthProviderItem(
-                        image: AppIcons.appple_logo,
-                      )),
-                    ],
-                  )
-                ],
+                            image: AppIcons.google_logo,
+                          ),
+                        ),
+                        Expanded(
+                          child: AuthProviderItem(
+                            image: AppIcons.facebook_logo,
+                          ),
+                        ),
+                        Expanded(
+                            child: AuthProviderItem(
+                          image: AppIcons.appple_logo,
+                        )),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
