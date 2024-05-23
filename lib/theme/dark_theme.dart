@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chillhall_app/resources/color_resources.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /*ThemeData dark = ThemeData(
   fontFamily: 'Poppins',
@@ -40,7 +41,9 @@ class DarkTheme{
   static ThemeData buildAppDarkTheme() {
     final base = ThemeData.dark();
     return base.copyWith(
-      bottomAppBarColor: AppColors.darkBottomAppBarBackground,
+      bottomAppBarTheme: const BottomAppBarTheme(
+        color: AppColors.darkBottomAppBarBackground,
+      ),
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.darkDrawerBackground,
         modalBackgroundColor: Colors.black.withOpacity(0.7),
@@ -104,53 +107,88 @@ class DarkTheme{
 
   static TextTheme _buildReplyDarkTextTheme(TextTheme base) {
     return base.copyWith(
-      headline4: const TextStyle(
+      displayLarge: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
-        fontSize: 34,
+        fontSize: 34.sp,
         letterSpacing: 0.4,
         height: 0.9,
         color: AppColors.white50,
       ),
-      headline5: const TextStyle(
+      displayMedium: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.bold,
-        fontSize: 24,
+        fontSize: 24.sp,
         letterSpacing: 0.27,
         color: AppColors.white50,
       ),
-      headline6: const TextStyle(
+      displaySmall: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
-        fontSize: 20,
+        fontSize: 20.sp,
         letterSpacing: 0.18,
         color: AppColors.white50,
       ),
-      subtitle2: const TextStyle(
+      titleLarge: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
-        fontSize: 14,
+        fontSize: 18.sp,
         letterSpacing: -0.04,
         color: AppColors.white50,
       ),
-      bodyText1: const TextStyle(
+      titleMedium: TextStyle(
+        fontFamily: 'Manrope',
+        fontWeight: FontWeight.w600,
+        fontSize: 16.sp,
+        letterSpacing: -0.04,
+        color: AppColors.white50,
+      ),
+      titleSmall: TextStyle(
+        fontFamily: 'Manrope',
+        fontWeight: FontWeight.w600,
+        fontSize: 14.sp,
+        letterSpacing: -0.04,
+        color: AppColors.white50,
+      ),
+      bodyLarge: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.normal,
-        fontSize: 16,
+        fontSize: 16.sp,
         letterSpacing: 0.2,
         color: AppColors.white50,
       ),
-      bodyText2: const TextStyle(
+      bodyMedium: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.normal,
-        fontSize: 14,
+        fontSize: 16.sp,
+        letterSpacing: 0.2,
+        color: AppColors.white50,
+      ),
+      bodySmall: TextStyle(
+        fontFamily: 'Manrope',
+        fontWeight: FontWeight.normal,
+        fontSize: 14.sp,
         letterSpacing: -0.05,
         color: AppColors.white50,
       ),
-      caption: const TextStyle(
+      labelLarge: TextStyle(
         fontFamily: 'Manrope',
         fontWeight: FontWeight.normal,
-        fontSize: 12,
+        fontSize: 14.sp,
+        letterSpacing: 0.2,
+        color: AppColors.white50,
+      ),
+      labelMedium: TextStyle(
+        fontFamily: 'Manrope',
+        fontWeight: FontWeight.normal,
+        fontSize: 12.sp,
+        letterSpacing: 0.2,
+        color: AppColors.white50,
+      ),
+      labelSmall: TextStyle(
+        fontFamily: 'Manrope',
+        fontWeight: FontWeight.normal,
+        fontSize: 10.sp,
         letterSpacing: 0.2,
         color: AppColors.white50,
       ),
