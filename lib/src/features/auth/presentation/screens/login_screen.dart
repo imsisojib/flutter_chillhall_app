@@ -6,22 +6,22 @@ import 'package:flutter_chillhall_app/src/core/presentation/widgets/basic_textfi
 import 'package:flutter_chillhall_app/src/core/presentation/widgets/buttons/button_filled.dart';
 import 'package:flutter_chillhall_app/src/core/presentation/widgets/password_textfield.dart';
 import 'package:flutter_chillhall_app/src/features/auth/presentation/widgets/auth_provider_item.dart';
-import 'package:flutter_chillhall_app/theme/text_theme.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -29,8 +29,8 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.arrow_back_ios)),
-                    SizedBox(
+                        icon: const Icon(Icons.arrow_back_ios)),
+                    const SizedBox(
                       height: 16,
                     ),
                     Center(
@@ -43,33 +43,40 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 48,
                     ),
                     Text(
                       "Sign in",
-                      style: TextDecorations.geSemiBoldTextStyle(context, fontSize: 24.0),
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontSize: 20.sp,
+                      ),
                     ),
                     Row(
                       children: [
                         Text(
                           "Don't have an account?",
-                          style: TextDecorations.getNormalTextStyle(context, fontSize: 12.0),
+                          style: theme.textTheme.labelMedium,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 4,
                         ),
                         InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, Routes.SIGNUP,);
+                              Navigator.pushNamed(
+                                context,
+                                Routes.signupScreen,
+                              );
                             },
                             child: Text(
                               "Create an account",
-                              style: TextDecorations.getNormalTextStyle(context, fontSize: 12.0, color: Colors.blue),
-                            ))
+                              style: theme.textTheme.labelMedium?.copyWith(
+                                color: Colors.blue,
+                              ),
+                            ),),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 32,
                     ),
                     BasicTextField(
@@ -77,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                       hintText: "johndoe@gmail.com",
                       onChanged: (value) {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     PasswordTextField(
@@ -85,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                       hintText: "Password",
                       onChanged: (value) {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Align(
@@ -94,10 +101,10 @@ class LoginScreen extends StatelessWidget {
                           onTap: () {},
                           child: Text(
                             "Forget password?",
-                            style: TextDecorations.getNormalTextStyle(context, fontSize: 12.0),
+                            style: theme.textTheme.labelMedium,
                           )),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
                     ButtonFilled(
@@ -107,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                       checkAuthentication: false,
                       function: () {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
                     Row(
@@ -118,11 +125,11 @@ class LoginScreen extends StatelessWidget {
                           color: AppColors.white10,
                           height: 1,
                         )),
-                        SizedBox(
+                        const SizedBox(
                           width: 4,
                         ),
-                        Text("Continue with"),
-                        SizedBox(
+                        const Text("Continue with"),
+                        const SizedBox(
                           width: 4,
                         ),
                         Expanded(
@@ -133,10 +140,10 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         Expanded(
                           child: AuthProviderItem(

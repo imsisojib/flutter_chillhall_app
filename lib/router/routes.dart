@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class Routes {
 
-  static const String MAIN_SCREEN = '/';
+  static const String homeScreen = '/';
 
-  //auth secction
-  static const String LOGIN = "/login";
-  static const String SIGNUP = "/signup";
+  //auth section
+  static const String loginScreen = "/login";
+  static const String signupScreen = "/signup";
 
-
-  static String getMainRoute() => MAIN_SCREEN;
 
   //static String getPaymentRoute(String page, String id, int user) => '$PAYMENT_SCREEN?page=$page&id=$id&user=$user';
  /* static String getMapRoute(String address, String type, String lat, String long, String name, String num, int id, int user) {

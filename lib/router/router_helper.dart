@@ -26,8 +26,8 @@ class RouterHelper {
       return;
     });
 
-    router.define(Routes.LOGIN, handler: _loginHandler, transitionType: TransitionType.cupertino);
-    router.define(Routes.SIGNUP, handler: _signupScreenHandler, transitionType: TransitionType.cupertino);
+    router.define(Routes.loginScreen, handler: _loginHandler, transitionType: TransitionType.cupertino);
+    router.define(Routes.signupScreen, handler: _signupScreenHandler, transitionType: TransitionType.cupertino);
 
   }
 }

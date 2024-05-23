@@ -36,7 +36,7 @@ class _ChillHallState extends State<ChillHall>{
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: AppStrings.APP_NAME,
-          initialRoute: Routes.LOGIN,
+          initialRoute: Routes.loginScreen,
           onGenerateRoute: RouterHelper.router.generator,
           theme: DarkTheme.buildAppDarkTheme(),
         );
