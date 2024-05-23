@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_chillhall_app/theme/text_theme.dart';
-
 import '../../../../../resources/color_resources.dart';
 
-class ButtonWithTittle extends StatelessWidget{
+class ButtonWithTittle extends StatelessWidget {
   final String? hintText;
   final String? tittleText;
   final String? additionalTittleText;
@@ -18,28 +15,62 @@ class ButtonWithTittle extends StatelessWidget{
   final String? route;
   final Function? function;
   final bool checkAuthentication;
-  bool isMandatoryField;
+  final bool isMandatoryField;
 
-
-  ButtonWithTittle({Key? key,this.buttonText,this.buttonColor=AppColors.red400,this.width=100,this.height=35,this.borderRadius=8,this.buttonTextStyle, this.route, this.function, this.checkAuthentication=false, this.hintText, this.tittleText, this.additionalTittleText,this.isMandatoryField=false, this.strokeColor=AppColors.white10}):super(key: key);
+  const ButtonWithTittle(
+      {super.key,
+      this.buttonText,
+      this.buttonColor = AppColors.red400,
+      this.width = 100,
+      this.height = 35,
+      this.borderRadius = 8,
+      this.buttonTextStyle,
+      this.route,
+      this.function,
+      this.checkAuthentication = false,
+      this.hintText,
+      this.tittleText,
+      this.additionalTittleText,
+      this.isMandatoryField = false,
+      this.strokeColor = AppColors.white10});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         Visibility(
-            visible: tittleText==null?false:true,
+            visible: tittleText == null ? false : true,
             child: Column(
               children: [
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(children: [
-                      Text(tittleText??"",style: TextDecorations.getNormalTextStyle(context),),
-                      isMandatoryField?Text("*",style: TextDecorations.getNormalTextStyle(context,color: AppColors.red400),):Text(""),
-                      Text(additionalTittleText??"",style: TextDecorations.getNormalTextStyle(context),),
-                    ],),
-                  ],),
-                const SizedBox(height: 6,),
+                    Row(
+                      children: [
+                        Text(
+                          tittleText ?? "",
+                          style: theme.textTheme.titleMedium,
+                        ),
+                        isMandatoryField
+                            ? Text(
+                                "*",
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: AppColors.red400,
+                                ),
+                              )
+                            : const Text(""),
+                        Text(
+                          additionalTittleText ?? "",
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
               ],
             )),
         Container(
@@ -52,12 +83,10 @@ class ButtonWithTittle extends StatelessWidget{
                 width: 1,
                 style: BorderStyle.solid,
               ),
-              borderRadius: BorderRadius.all(Radius.circular(borderRadius))
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
           child: MaterialButton(
-            padding: EdgeInsets.all(0),
-            onPressed: (){
-
+            padding: const EdgeInsets.all(0),
+            onPressed: () {
               /*if(checkAuthentication && !Provider.of<AuthProvider>(context,listen: false).authenticationStatus){
             Navigator.pushNamed(context, Routes.LOGIN);
             return;
@@ -78,7 +107,10 @@ class ButtonWithTittle extends StatelessWidget{
             );
           }*/
             },
-            child: Text(buttonText??"",style: buttonTextStyle,),
+            child: Text(
+              buttonText ?? "",
+              style: buttonTextStyle,
+            ),
           ),
         )
       ],

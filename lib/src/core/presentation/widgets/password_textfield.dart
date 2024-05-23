@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chillhall_app/resources/color_resources.dart';
-import 'package:flutter_chillhall_app/theme/text_theme.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class PasswordTextField extends StatefulHookWidget {
@@ -82,6 +81,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -96,11 +97,9 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                       children: [
                         Text(
                           tittleText ?? "",
-                          style: TextDecorations.getNormalTextStyle(context),
                         ),
                         Text(
                           additionalTittleText ?? "",
-                          style: TextDecorations.getNormalTextStyle(context),
                         ),
                       ],
                     ),
@@ -152,9 +151,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
             border: OutlineInputBorder(
                 borderSide: BorderSide(width: 1, color: enableBorderColor, style: BorderStyle.solid), borderRadius: BorderRadius.circular(4)),
             hintText: hintText,
-            hintStyle: TextStyle(
+            hintStyle: theme.textTheme.labelMedium?.copyWith(
               color: AppColors.white25,
-              fontSize: 13,
             ),
           ),
         ),
